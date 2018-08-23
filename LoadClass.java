@@ -3,7 +3,7 @@ package interazione.parte2.punto4;
 import java.io.File;
 
 import logica.parte2.punto4.*;
-import utility.*;
+import utility_2.*;
 
 public class LoadClass 
 {
@@ -18,7 +18,6 @@ public class LoadClass
 	 private ArchivioPrestiti ap;
 	 private ArchivioStorico as;
 
-	 private boolean caricamentoRiuscito = false;
 	 
 	 private LoadClass() {};
 	 
@@ -33,8 +32,10 @@ public class LoadClass
 		
 	 public void inizializza() 
 	 {
-		if(gestoreRisorse.exists())
-		{
+		 boolean caricamentoRiuscito = false;
+		 
+		 if(gestoreRisorse.exists())
+		 {
 			try 
 			{
 				rd = (RaccoltaDati)ServizioFile.caricaSingoloOggetto(gestoreRisorse);
