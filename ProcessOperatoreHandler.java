@@ -15,8 +15,8 @@ import logica.parte2.punto4.ArchivioStorico;
 import logica.parte2.punto4.Fruitore;
 import logica.parte2.punto4.Operatore;
 import logica.parte2.punto4.Utente;
-import utility.Costanti;
-import utility.InputDati;
+import utility_2.Costanti;
+import utility_2.InputDati;
 
 public class ProcessOperatoreHandler extends ProcessHandler implements Serializable
 {
@@ -26,9 +26,6 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
 	private AnagraficaOperatori ao;
     private ArchivioStorico as;
     
-    /**
-     * @pre: (arc != null) && (ap != null) && (af != null) && (ao != null) && (as != null)
-     */
     public ProcessOperatoreHandler(Archivio arc, ArchivioPrestiti ap, AnagraficaFruitori af, AnagraficaOperatori ao, ArchivioStorico as)
     {  
     	super(arc, ap);
@@ -69,17 +66,11 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
 		 return ut;
     }
 	
-	/**
-	 * @pre: op != null
-	 */
 	public void visualizzaElencoFruitori(Operatore op)
 	{
 		System.out.println(op.visualizzaElencoFruitori(af));
 	}
 	
-	/**
-     * @pre: (op != null) && (arc != null) && (arc.getElencoCategorie().size != 0)
-     */
      public void aggiungiRisorsa(Operatore op)
      {
      	 Categoria c = null;
@@ -158,10 +149,7 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
              }    
          }    	
      }
-     
-     /** 
-      * @pre: (op != null) && (arc != null) && (arc.getElencoCategorie().size != 0) && (as != null)
-      */
+    
      public void rimuoviRisorsa(Operatore op)
      {
         Categoria c = null;
@@ -226,17 +214,11 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
          }   
      }
      
-     /**
-      * @pre: op != null
-      */
      public void visualizzaArchivio(Operatore op)
      {
     	 System.out.println(op.visualizzaArchivio(getArchivio()));
      }
-     
-     /**
-      * @pre: (o != null) && (af != null) && (as != null)
-      */
+    
      public String sceltaInterrogazione(Operatore o)
      {
   	    int numScelta = InputDati.leggiIntero(Costanti.SCELTA_INTERROGAZIONE, Costanti.NUM_MINIMO, Costanti.NUM_MASSIMO_RICERCA);
@@ -281,6 +263,5 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
   	    }  
   	    
   	    return s2;
-     }
-     
+     }   
 }

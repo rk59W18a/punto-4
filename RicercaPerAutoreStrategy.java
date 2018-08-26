@@ -25,5 +25,4 @@ public class RicercaPerAutoreStrategy implements IRicercaStrategy
 	   	    	                    
 	   	 return risorseCercate;
 	}
-
 }

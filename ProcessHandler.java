@@ -6,21 +6,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import dominio.parte2.punto4.Categoria;
-import dominio.parte2.punto4.Ricerca;
-import dominio.parte2.punto4.RicercaPerAnnoPubblicazione;
-import dominio.parte2.punto4.RicercaPerAttore;
-import dominio.parte2.punto4.RicercaPerAutore;
-import dominio.parte2.punto4.RicercaPerCasaEditrice;
-import dominio.parte2.punto4.RicercaPerGenere;
-import dominio.parte2.punto4.RicercaPerRegista;
-import dominio.parte2.punto4.RicercaPerTitolo;
+import dominio.parte2.punto4.IRicercaStrategy;
+import dominio.parte2.punto4.RicercaPerAnnoPubblicazioneStrategy;
+import dominio.parte2.punto4.RicercaPerAttoreStrategy;
+import dominio.parte2.punto4.RicercaPerAutoreStrategy;
+import dominio.parte2.punto4.RicercaPerCasaEditriceStrategy;
+import dominio.parte2.punto4.RicercaPerGenereStrategy;
+import dominio.parte2.punto4.RicercaPerRegistaStrategy;
+import dominio.parte2.punto4.RicercaPerTitoloStrategy;
 import dominio.parte2.punto4.Risorsa;
 import dominio.parte2.punto4.SottoCategoria;
 import logica.parte2.punto4.Archivio;
 import logica.parte2.punto4.ArchivioPrestiti;
 import logica.parte2.punto4.Utente;
-import utility.Costanti;
-import utility.InputDati;
+import utility_2.Costanti;
+import utility_2.InputDati;
 
 public abstract class ProcessHandler implements Serializable
 {  
@@ -29,9 +29,6 @@ public abstract class ProcessHandler implements Serializable
 	private Archivio arc;
     private ArchivioPrestiti ap;
     
-    /**
-     * @pre: (arc != null) && (ap != null) 
-     */
     public ProcessHandler(Archivio arc, ArchivioPrestiti ap)
     {  
     	this.arc = arc;
@@ -50,9 +47,6 @@ public abstract class ProcessHandler implements Serializable
 
     public abstract Utente accesso();
   
-    /**
-     * @pre: (ut != null) && (arc != null) && (arc.getElencoCategorie().size != 0)
-     */
     public ArrayList <Risorsa> ricercaRisorsa(Utente ut)
     {
        	Categoria c = null;
@@ -69,80 +63,71 @@ public abstract class ProcessHandler implements Serializable
    	 	else
    	 		return null;
     }
-    
-    /**
-     * @pre: (ut != null) && (c != null)
-     */
+   
     public ArrayList <Risorsa> ricercaRisorsaLibri(Utente ut, Categoria c)
     {
    	    int numScelta = InputDati.leggiIntero(Costanti.AVVIO_RICERCA_LIBRI, Costanti.NUM_MINIMO, Costanti.NUM_MASSIMO_RICERCA);
    	    String s = "";
-   	    Ricerca r = null;
+   	    IRicercaStrategy r = null;
    	
    	    switch(numScelta)
    	    {
 	    	   case 1: s = InputDati.leggiStringa(Costanti.INS_PAROLA_TITOLO_RISORSA);
-	    	           r = new RicercaPerTitolo(s);
+	    	           r = new RicercaPerTitoloStrategy(s);
 	    			   break;
 	    		
 	    	   case 2: s = InputDati.leggiStringa(Costanti.INS_COGNOME_AUTORE_LIBRO); 
-	    	           r = new RicercaPerAutore(s);
+	    	           r = new RicercaPerAutoreStrategy(s);
 	    		       break;
 	       
 	    	   case 3: s = InputDati.leggiStringa(Costanti.INS_GENERE_RISORSA);
-	    	           r = new RicercaPerGenere(s);
+	    	           r = new RicercaPerGenereStrategy(s);
 	    		       break;
 	    	   
 	    	   case 4: s = Integer.toString(InputDati.leggiIntero(Costanti.INS_ANNOPUB_RISORSA));
-	    	           r = new RicercaPerAnnoPubblicazione(s);
+	    	           r = new RicercaPerAnnoPubblicazioneStrategy(s);
 	    	   		   break;
 	    		
 	    	   case 5: s = InputDati.leggiStringa(Costanti.INS_CASAED_LIBRO);
-	    	           r = new RicercaPerCasaEditrice(s);
+	    	           r = new RicercaPerCasaEditriceStrategy(s);
 	    	   		   break;
    	    }  
 	    
    	    return ut.ricercaRisorsa(c,r);
     }
    
-    /** 
-     * @pre: (ut != null) && (c != null)
-     */
     public ArrayList <Risorsa> ricercaRisorsaFilm(Utente ut, Categoria c)
     {
    	    int numScelta = InputDati.leggiIntero(Costanti.AVVIO_RICERCA_FILM, Costanti.NUM_MINIMO, Costanti.NUM_MASSIMO_RICERCA);
    	    String s = "";
-   	    Ricerca r = null;
+   	    IRicercaStrategy r = null;
    	
    	    switch(numScelta)
    	    {
    	     	case 1: s = InputDati.leggiStringa(Costanti.INS_PAROLA_TITOLO_RISORSA);
-   	    			r = new RicercaPerTitolo(s);
+   	    			r = new RicercaPerTitoloStrategy(s);
 	    			break;
 	    		
    	      	case 2: s = InputDati.leggiStringa(Costanti.INS_COGNOME_REGISTA_FILM); 
-   	                r = new RicercaPerRegista(s);
+   	                r = new RicercaPerRegistaStrategy(s);
 	    		    break;
 	       
    	        case 3: s = InputDati.leggiStringa(Costanti.INS_COGNOME_ATTORE_FILM);
-   	                r = new RicercaPerAttore(s);
+   	                r = new RicercaPerAttoreStrategy(s);
 	                break;
 	    	   
    	      	case 4: s = Integer.toString(InputDati.leggiIntero(Costanti.INS_ANNOPUB_RISORSA));
-   	                r = new RicercaPerAnnoPubblicazione(s);
+   	                r = new RicercaPerAnnoPubblicazioneStrategy(s);
 	                break;
 	    		
    	       	case 5: s = InputDati.leggiStringa(Costanti.INS_GENERE_RISORSA);
-   	                r = new RicercaPerGenere(s);
+   	                r = new RicercaPerGenereStrategy(s);
    	    			break;
    	    }  
 	    
    	    return ut.ricercaRisorsa(c, r);
     }
-    
-   /**
-    * @pre: (ut != null) && (arc != null) && (ap != null)
-    */
+  
    public String valutazioneDisponibilita(Utente ut)
    {
      	ArrayList <Risorsa> risorseTrovate = ricercaRisorsa(ut);
@@ -173,14 +158,6 @@ public abstract class ProcessHandler implements Serializable
     		     return false;
    }
    
-   /**
-    * Metodo per la creazione di una stringa descrittiva delle risorse che sono state trovate mediante 
-    * una ricerca
-    * 
-    * @pre: elencoRisorse != null
-    * 
-    * @param elencoRisorse: il vettore contenente le risorse, risultato dalla ricerca, da stampare
-    */
    public String stampaRisorseDaRicerca(ArrayList <Risorsa> elencoRisorse)
    {
   	    StringBuffer ris = new StringBuffer();
@@ -197,10 +174,7 @@ public abstract class ProcessHandler implements Serializable
 		
 		return ris.toString();
    }
-   
-   /**
-    * @pre: elencoRisorse != null
-    */
+  
    public String stampaElencoRisorse(Categoria c)
    {
       StringBuffer ris = new StringBuffer();
@@ -213,10 +187,7 @@ public abstract class ProcessHandler implements Serializable
  	   
  	   return ris.toString();
    }
-   
-   /**
-    * @pre: elencoSottoCategorie != null
-    */
+  
    public String stampaElencoSottocategorie(Categoria c)
    {
 	   StringBuffer ris = new StringBuffer();
@@ -228,6 +199,5 @@ public abstract class ProcessHandler implements Serializable
 	   }
 	   
 	   return ris.toString();
-   }
-    
+   }   
 }

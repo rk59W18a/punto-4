@@ -24,6 +24,5 @@ public class RicercaPerGenereStrategy implements IRicercaStrategy
 	   	 }
 	   	    	                    
 	   	 return risorseCercate;
-	}
-	
+	}	
 }

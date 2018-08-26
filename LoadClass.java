@@ -17,8 +17,7 @@ public class LoadClass
 	 private Archivio arc;
 	 private ArchivioPrestiti ap;
 	 private ArchivioStorico as;
-
-	 
+ 
 	 private LoadClass() {};
 	 
 	 public static LoadClass getinstance()
@@ -108,6 +107,5 @@ public class LoadClass
 	   System.out.println(Costanti.MSG_SALVA);
 	   rd = new RaccoltaDati(af, ao, arc, ap, as);
 	   ServizioFile.salvaSingoloOggetto(gestoreRisorse, rd); 
-	 } 
-	
+	 } 	
 }
