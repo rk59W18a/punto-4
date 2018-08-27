@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>108</x>
-      <y>81</y>
+      <x>0</x>
+      <y>225</y>
       <w>99</w>
       <h>45</h>
     </coordinates>
@@ -16,8 +16,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>117</y>
+      <x>36</x>
+      <y>261</y>
       <w>27</w>
       <h>54</h>
     </coordinates>
@@ -27,8 +27,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>144</x>
-      <y>153</y>
+      <x>36</x>
+      <y>297</y>
       <w>18</w>
       <h>477</h>
     </coordinates>
@@ -38,8 +38,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>396</x>
-      <y>81</y>
+      <x>288</x>
+      <y>225</y>
       <w>126</w>
       <h>45</h>
     </coordinates>
@@ -50,8 +50,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>144</x>
-      <y>621</y>
+      <x>36</x>
+      <y>765</y>
       <w>27</w>
       <h>81</h>
     </coordinates>
@@ -61,8 +61,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>117</y>
+      <x>342</x>
+      <y>261</y>
       <w>27</w>
       <h>81</h>
     </coordinates>
@@ -72,8 +72,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>450</x>
-      <y>180</y>
+      <x>342</x>
+      <y>324</y>
       <w>18</w>
       <h>423</h>
     </coordinates>
@@ -83,8 +83,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>153</x>
-      <y>162</y>
+      <x>45</x>
+      <y>306</y>
       <w>315</w>
       <h>36</h>
     </coordinates>
@@ -95,8 +95,8 @@ ricercaRisorsa(ut)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>594</y>
+      <x>342</x>
+      <y>738</y>
       <w>27</w>
       <h>99</h>
     </coordinates>
@@ -106,8 +106,8 @@ ricercaRisorsa(ut)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
-      <y>207</y>
+      <x>360</x>
+      <y>351</y>
       <w>18</w>
       <h>279</h>
     </coordinates>
@@ -117,8 +117,8 @@ ricercaRisorsa(ut)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>459</x>
-      <y>171</y>
+      <x>351</x>
+      <y>315</y>
       <w>216</w>
       <h>54</h>
     </coordinates>
@@ -129,8 +129,8 @@ ricercaRisorsaLibri(ut,c)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>738</x>
-      <y>90</y>
+      <x>630</x>
+      <y>234</y>
       <w>126</w>
       <h>45</h>
     </coordinates>
@@ -141,8 +141,8 @@ ricercaRisorsaLibri(ut,c)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>225</y>
+      <x>369</x>
+      <y>369</y>
       <w>333</w>
       <h>36</h>
     </coordinates>
@@ -153,8 +153,8 @@ new(s)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>126</y>
+      <x>684</x>
+      <y>270</y>
       <w>27</w>
       <h>72</h>
     </coordinates>
@@ -164,8 +164,8 @@ new(s)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>792</x>
-      <y>180</y>
+      <x>684</x>
+      <y>324</y>
       <w>18</w>
       <h>144</h>
     </coordinates>
@@ -175,8 +175,8 @@ new(s)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>279</y>
+      <x>369</x>
+      <y>423</y>
       <w>333</w>
       <h>36</h>
     </coordinates>
@@ -187,8 +187,8 @@ return risorsa</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>369</y>
+      <x>369</x>
+      <y>513</y>
       <w>603</w>
       <h>36</h>
     </coordinates>
@@ -199,8 +199,8 @@ ricercaRisorsa(c,r)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1008</x>
-      <y>90</y>
+      <x>900</x>
+      <y>234</y>
       <w>126</w>
       <h>45</h>
     </coordinates>
@@ -211,8 +211,8 @@ ricercaRisorsa(c,r)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>315</y>
+      <x>684</x>
+      <y>459</y>
       <w>27</w>
       <h>72</h>
     </coordinates>
@@ -222,8 +222,8 @@ ricercaRisorsa(c,r)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1062</x>
-      <y>126</y>
+      <x>954</x>
+      <y>270</y>
       <w>27</w>
       <h>279</h>
     </coordinates>
@@ -233,8 +233,8 @@ ricercaRisorsa(c,r)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1062</x>
-      <y>387</y>
+      <x>954</x>
+      <y>531</y>
       <w>18</w>
       <h>99</h>
     </coordinates>
@@ -244,8 +244,8 @@ ricercaRisorsa(c,r)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>441</y>
+      <x>369</x>
+      <y>585</y>
       <w>603</w>
       <h>36</h>
     </coordinates>
@@ -256,8 +256,8 @@ return risorse cercate</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>153</x>
-      <y>459</y>
+      <x>45</x>
+      <y>603</y>
       <w>333</w>
       <h>36</h>
     </coordinates>
@@ -268,12 +268,100 @@ completamento</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1062</x>
-      <y>477</y>
+      <x>954</x>
+      <y>621</y>
       <w>27</w>
       <h>108</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>684</x>
+      <y>171</y>
+      <w>54</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.()</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>702</x>
+      <y>144</y>
+      <w>126</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Package dominio</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>36</x>
+      <y>162</y>
+      <w>54</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.()</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>54</x>
+      <y>135</y>
+      <w>81</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Client</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>162</y>
+      <w>54</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.()</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>360</x>
+      <y>135</y>
+      <w>81</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Facade</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>171</y>
+      <w>72</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.()</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>900</x>
+      <y>144</y>
+      <w>117</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Package logica</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
