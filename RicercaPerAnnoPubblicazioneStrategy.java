@@ -1,10 +1,13 @@
 package dominio.parte2.punto4;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RicercaPerAnnoPubblicazioneStrategy implements IRicercaStrategy
+public class RicercaPerAnnoPubblicazioneStrategy implements IRicercaStrategy, Serializable
 {
-    private int n;
+	private static final long serialVersionUID = 1L;
+	
+	private int n;
 	
 	public RicercaPerAnnoPubblicazioneStrategy(String s)
 	{

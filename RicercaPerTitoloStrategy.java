@@ -1,9 +1,12 @@
 package dominio.parte2.punto4;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RicercaPerTitoloStrategy implements IRicercaStrategy
+public class RicercaPerTitoloStrategy implements IRicercaStrategy, Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	private String s;
 	
 	public RicercaPerTitoloStrategy(String s)

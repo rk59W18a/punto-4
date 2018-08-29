@@ -3,7 +3,7 @@ package interazione.parte2.punto4;
 import java.io.File;
 
 import logica.parte2.punto4.*;
-import utility_2.*;
+import utility.parte2.*;
 
 public class LoadClass 
 {
