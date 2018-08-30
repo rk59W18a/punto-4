@@ -1,17 +1,14 @@
-package interazione;
+package interazione.parte2.punto4;
 
 import java.io.Serializable;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import dominio.Film;
-import dominio.Libro;
-import utility.InputDati;
+import dominio.parte2.punto4.*;
+import utility.parte2.*;
 
-/**
- * Questa classe e' di appoggio per l'inserimento dei dati relativi ad una risorsa nel metodo aggiungiRisorsa() 
- * della classe GestoreMenu
- */
+
 public class InserimentoRisorsa implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -38,10 +35,6 @@ public class InserimentoRisorsa implements Serializable
     public static final int MAX_LICENZE_FILM = 20;
     public static final int MIN_ANNOP = 1900;
 	
-    /**
-     * Metodo per l'acquisizione dei dati relativi ad un libro
-     * @return l'oggetto libro costruito sulla base dei dati inseriti
-     */
 	public static Libro inserisciLibro()
     {
     	    String t = InputDati.leggiStringaNonVuota(INS_TITOLO);
@@ -51,11 +44,11 @@ public class InserimentoRisorsa implements Serializable
     	    
     	    do
     	    {
-    	    	    String autore = InputDati.leggiStringaNonVuota(INS_AUTORE);
-    	    	    a.add(autore);
+    	    	String autore = InputDati.leggiStringaNonVuota(INS_AUTORE);
+    	    	a.add(autore);
     	    	    
-    	    	    if(InputDati.leggiUpperChar(INS_ALTRO_AUTORE, "SN") == 'N')
-    	    	    	     end = true;
+    	    	if(InputDati.leggiUpperChar(INS_ALTRO_AUTORE, "SN") == 'N')
+    	    	     end = true;
     	    	    
     	    }while(!end);
     	    
@@ -64,17 +57,12 @@ public class InserimentoRisorsa implements Serializable
     	    String ce = InputDati.leggiStringaNonVuota(INS_CASAED);
     	    String l = InputDati.leggiStringaNonVuota(INS_LINGUA);
     	    String g = InputDati.leggiStringaNonVuota(INS_GENERE);
-    	    Persona p = new Persona(a);
     	    		
-    	    Libro lib = new Libro(t, nl, g, ap, l, p, np, ce);
+    	    Libro lib = new Libro(t, nl, g, ap, l, a, np, ce);
     	    
     	    return lib;
     }
 	
-	 /**
-     * Metodo per l'acquisizione dei dati relativi ad un film
-     * @return l'oggetto film costruito sulla base dei dati inseriti
-     */
 	public static Film inserisciFilm()
     {
     	    String t = InputDati.leggiStringaNonVuota(INS_TITOLO);
@@ -85,11 +73,11 @@ public class InserimentoRisorsa implements Serializable
     	    
     	    do
     	    {
-    	    	    String attore = InputDati.leggiStringaNonVuota(INS_ATTORE);
-    	    	    a.add(attore);
+    	    	 String attore = InputDati.leggiStringaNonVuota(INS_ATTORE);
+    	    	 a.add(attore);
     	    	    
-    	    	    if(InputDati.leggiUpperChar(INS_ALTRO_AUTORE, "SN") == 'N')
-    	    	    	     end = true;
+    	    	 if(InputDati.leggiUpperChar(INS_ALTRO_AUTORE, "SN") == 'N')
+    	    	      end = true;
     	    	    
     	    }while(!end);
     	    
@@ -97,10 +85,9 @@ public class InserimentoRisorsa implements Serializable
     	    int ap = InputDati.leggiIntero(INS_ANNOP, MIN_ANNOP, ANNO_CORRENTE);   
     	    String l = InputDati.leggiStringaNonVuota(INS_LINGUA);
     	    String g = InputDati.leggiStringaNonVuota(INS_GENERE);
-    	    Persona p = new Persona(a);
     	    		
-    	    Film f = new Film(t, nl, g, ap, l, r, p, d);
+    	    Film f = new Film(t, nl, g, ap, l, r, a, d);
     	    
     	    return f;
-    }
+    }	
 }

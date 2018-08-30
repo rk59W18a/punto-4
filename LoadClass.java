@@ -3,7 +3,7 @@ package interazione.parte2.punto4;
 import java.io.File;
 
 import logica.parte2.punto4.*;
-import utility_2.*;
+import utility.parte2.*;
 
 public class LoadClass 
 {
@@ -17,8 +17,7 @@ public class LoadClass
 	 private Archivio arc;
 	 private ArchivioPrestiti ap;
 	 private ArchivioStorico as;
-
-	 
+ 
 	 private LoadClass() {};
 	 
 	 public static LoadClass getinstance()
@@ -39,11 +38,11 @@ public class LoadClass
 			try 
 			{
 				rd = (RaccoltaDati)ServizioFile.caricaSingoloOggetto(gestoreRisorse);
-			/*	af = rd.getAnagraficaFruitori();
+				af = rd.getAnagraficaFruitori();
 				ao = rd.getAnagraficaOperatori();
 				arc = rd.getArchivio();
 				ap = rd.getArchivioPrestiti();
-				as = rd.getArchivioStorico();*/
+				as = rd.getArchivioStorico();
 			}
 			catch (ClassCastException e)
 			{
@@ -71,14 +70,13 @@ public class LoadClass
 			arc = new Archivio();
 			ap = new ArchivioPrestiti();
 			as = new ArchivioStorico();
-			rd = new RaccoltaDati(af, ao, arc, ap, as);
 			
 			StrutturaSistema.aggiuntaOperatoriPreimpostati(ao);
 			StrutturaSistema.creazioneStrutturaArchivioLibri(arc);
 			StrutturaSistema.creazioneStrutturaArchivioFilm(arc);
 		}
 	}
-	   /* 
+	    
 	public AnagraficaFruitori getAnagraficaFruitori()
 	{
 	   return af;
@@ -102,11 +100,6 @@ public class LoadClass
 	public ArchivioStorico getArchivioStorico()
 	{
 	   return as;
-	}*/
-	
-	public RaccoltaDati getRaccoltaDati()
-	{
-	   return rd;
 	}
 	    
 	public void salva() 
@@ -114,6 +107,5 @@ public class LoadClass
 	   System.out.println(Costanti.MSG_SALVA);
 	   rd = new RaccoltaDati(af, ao, arc, ap, as);
 	   ServizioFile.salvaSingoloOggetto(gestoreRisorse, rd); 
-	 } 
-	
+	 } 	
 }

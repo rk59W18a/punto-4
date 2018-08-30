@@ -1,7 +1,5 @@
 package interazione.parte2.punto4;
 
-import com.sun.org.apache.bcel.internal.generic.LoadClass;
-
 import logica.parte2.punto4.AnagraficaFruitori;
 import logica.parte2.punto4.AnagraficaOperatori;
 import logica.parte2.punto4.Archivio;
@@ -14,15 +12,14 @@ public class Main
 	{
 		LoadClass.getinstance().inizializza();
 		
-		/*Archivio arc = LoadClass.getinstance().getArchivio();
+		Archivio arc = LoadClass.getinstance().getArchivio();
 		ArchivioPrestiti ap = LoadClass.getinstance().getArchivioPrestiti();
 		AnagraficaFruitori af = LoadClass.getinstance().getAnagraficaFruitori();
 		AnagraficaOperatori ao = LoadClass.getinstance().getAnagraficaOperatori();
-		ArchivioStorico as = LoadClass.getinstance().getArchivioStorico();*/
+		ArchivioStorico as = LoadClass.getinstance().getArchivioStorico();
 	
-		RaccoltaDati rd = LoadClass.getInstance().getRaccoltaDati();
-		ProcessOperatoreHandler processOperatore = new ProcessOperatoreHandler(rd);  
-        ProcessFruitoreHandler processFruitore = new ProcessFruitoreHandler(rd);    
+		ProcessOperatoreHandler processOperatore = new ProcessOperatoreHandler(arc, ap, af, ao, as);  
+        ProcessFruitoreHandler processFruitore = new ProcessFruitoreHandler(arc, ap, af, as);    
 		
 		MenuHandler gestore = new MenuHandler();
 		gestore.logicaMenu(processOperatore,processFruitore);
