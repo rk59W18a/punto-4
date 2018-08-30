@@ -3,12 +3,10 @@ package dominio.parte2.punto4;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Categoria implements Serializable
+public class Categoria extends Contenitore implements Serializable
 {
 	   private static final long serialVersionUID = 1L;
 	   
-	   private String nomeCategoria;
-	   private ArrayList <Risorsa> elencoRisorse;
 	   private ArrayList <SottoCategoria> elencoSottoCategorie;
 	   
 	   private int numeroMaxGiorniPrestito;
@@ -20,34 +18,19 @@ public class Categoria implements Serializable
 	   public static final String DESCRIZIONE_CATEGORIA_COMPOSTA = "Nome categoria: %s\nSottocategorie in essa contenute:\n";
 	   public static final String ELENCO_SOTTOCATEGORIE_VUOTO = "\tAl momento non sono presenti sottocategorie\n";
 	   public static final String ELENCO_RISORSE_VUOTO = "\t\tAl momento non sono presenti risorse\n";
-
+	   
 	   public Categoria(String n, int numPres, int numMaxPro, int numRiPro, int numRis)
 	   {
-		   this.nomeCategoria = n;
+		   super(n);
 		   this.numeroMaxGiorniPrestito = numPres;
 		   this.numeroMaxGiorniProroga = numMaxPro;
 		   this.numeroGiorniRichiestaProroga = numRiPro;
 		   this.numeroMaxRisorseInPrestito = numRis;
 	   }
-	   
-	   public Categoria()
-	   {
-		   
-	   }
-	   
-	   public void inizializzaElencoRisorse()
-	   {
-		   elencoRisorse = new ArrayList <Risorsa> ();
-	   }
-	   
+	  	   
 	   public void inizializzaElencoSottoCategorie()
 	   {
 		   elencoSottoCategorie = new ArrayList <SottoCategoria> ();
-	   }
-	   
-	   public String getNome()
-	   {
-		   return nomeCategoria;
 	   }
 	   
 	   public int getNumeroMaxGiorniPrestito()
@@ -69,40 +52,12 @@ public class Categoria implements Serializable
 	   {
 		   return numeroMaxRisorseInPrestito;
 	   }
-	     
-	   public ArrayList <Risorsa> getElencoRisorse()  
-	   {
-		   return elencoRisorse;
-	   }
-	   
+	 
 	   public ArrayList <SottoCategoria> getElencoSottoCategorie() 
 	   {
 		   return elencoSottoCategorie;
 	   }
-	  
-	   public Risorsa getRisorsa(String t)
-	   {
-		   for(int i = 0; i < elencoRisorse.size(); i++)
-		   {
-			   Risorsa r = elencoRisorse.get(i);
-			   if(r.getTitolo().equalsIgnoreCase(t))
-				   return r;
-		   }
-		   
-		   return null;
-	   }
-	  
-	   public void aggiungiRisorsa(Risorsa r)  
-	   {
-		   elencoRisorse.add(r);
-	   }
-	   
-	   public void rimuoviRisorsa(Risorsa r)  
-	   {
-		   elencoRisorse.remove(r);
-		   
-	   }
-	  
+	 
 	   public void aggiungiSottoCategoria(SottoCategoria sc)
 	   {
 		   elencoSottoCategorie.add(sc);
@@ -136,7 +91,7 @@ public class Categoria implements Serializable
 		   
 		   if(elencoSottoCategorie == null)
 		   { 
-			   risorseCercate = ricerca.ricercaRisorsa(elencoRisorse);
+			   risorseCercate = ricerca.ricercaRisorsa(getElencoRisorse());
 		   }
 		   else
 		   {
@@ -156,22 +111,22 @@ public class Categoria implements Serializable
 		   
 		   if(elencoSottoCategorie == null)
 		   {
-		       ris.append(String.format(DESCRIZIONE_CATEGORIA_SEMPLICE, nomeCategoria));
+		       ris.append(String.format(DESCRIZIONE_CATEGORIA_SEMPLICE, getNome()));
 		   
-		       if(elencoRisorse.size() == 0)
+		       if(getElencoRisorse().size() == 0)
 		    	       ris.append(ELENCO_RISORSE_VUOTO);
 		       else
 		       {
-		          for(int i = 0; i < elencoRisorse.size(); i++)
+		          for(int i = 0; i < getElencoRisorse().size(); i++)
 		          {
-			         Risorsa r = elencoRisorse.get(i);
+			         Risorsa r = getElencoRisorse().get(i);
 			         ris.append("\t\t" + (i+1) + ")"+ r.toString());
 		          }
 		       }
 		   }
 		   else
 		   {
-			   ris.append(String.format(DESCRIZIONE_CATEGORIA_COMPOSTA, nomeCategoria));
+			   ris.append(String.format(DESCRIZIONE_CATEGORIA_COMPOSTA, getNome()));
 			   
 			   if(elencoSottoCategorie.size() == 0)
 				    ris.append(ELENCO_SOTTOCATEGORIE_VUOTO);

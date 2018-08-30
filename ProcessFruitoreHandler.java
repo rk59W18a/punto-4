@@ -16,8 +16,8 @@ import logica.parte2.punto4.ArchivioStorico;
 import logica.parte2.punto4.Fruitore;
 import logica.parte2.punto4.Prestito;
 import logica.parte2.punto4.Utente;
-import utility_2.Costanti;
-import utility_2.InputDati;
+import utility.parte2.Costanti;
+import utility.parte2.InputDati;
 
 public class ProcessFruitoreHandler extends ProcessHandler implements Serializable
 {
