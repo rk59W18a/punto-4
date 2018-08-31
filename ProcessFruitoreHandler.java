@@ -23,14 +23,9 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
 {
 	private static final long serialVersionUID = 1L;
 	
-	private AnagraficaFruitori af;
-    private ArchivioStorico as;
-   
     public ProcessFruitoreHandler(Archivio arc, ArchivioPrestiti ap, AnagraficaFruitori af, ArchivioStorico as)
     {
-    	super(arc, ap);
-    	this.af = af;
-    	this.as = as;
+    	super(arc, ap, af, as);
     }
     
 	public void iscrizione()
@@ -105,7 +100,7 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
 			ins_pwd = false;
 			ins_data = false;
 
-			if(af.verificaPresenza(f.getNome(), f.getCognome(), f.getDataDiNascita()))
+			if(getAnagraficaFruitori().verificaPresenza(f.getNome(), f.getCognome(), f.getDataDiNascita()))
 			{
 				System.out.println(Costanti.ISCRIZIONE_NON_OK_FRUITORE_GIA_ISCRITTO);
 				ins_nome = true;
@@ -114,7 +109,7 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
 				end = false;
 			}
 			
-			if(af.verificaStessoUsername(f.getUsername()))
+			if(getAnagraficaFruitori().verificaStessoUsername(f.getUsername()))
 			{
 				System.out.println(Costanti.ISCRIZIONE_NON_OK_STESSO_USERNAME);
 				ins_use = true;
@@ -132,8 +127,8 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
 			
 			if(end)
 			{
-				af.aggiungiFruitore(f);
-				as.getIscrizioniFruitoriStoriche().aggiungiFruitore(f);
+				getAnagraficaFruitori().aggiungiFruitore(f);
+				getArchivioStorico().getIscrizioniFruitoriStoriche().aggiungiFruitore(f);
 				System.out.println(Costanti.ISCRIZIONE_OK);
 			}
 			else
@@ -155,7 +150,7 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
 	{
 		if(f.rinnovaIscrizione())
         {
-	        as.getRinnovoIscrizioniFruitoriStorici().aggiungiFruitore(f);
+	        getArchivioStorico().getRinnovoIscrizioniFruitoriStorici().aggiungiFruitore(f);
 	        System.out.println(Costanti.RINNOVO_OK);
         }
 		else
@@ -174,9 +169,9 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
 		      use = InputDati.leggiStringaNonVuota(Costanti.USERNAME);
 		      pwd = InputDati.leggiStringaNonVuota(Costanti.PASSWORD);
 
-			  if(af.accedi(use, pwd))
+			  if(getAnagraficaFruitori().accedi(use, pwd))
 			  {
-				  ut = af.getUtente(use, pwd);
+				  ut = getAnagraficaFruitori().getUtente(use, pwd);
 				  end = true;
 			  }
 			  else
@@ -225,7 +220,7 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
   	   	                {
   	   		               nuovo = new Prestito(c, f, r);
   	   		               f.registraNuovoPrestito(getArchivioPrestiti(), nuovo);
-  	   		               as.getPrestitiStorici().aggiungiPrestito(nuovo);
+  	   		               getArchivioStorico().getPrestitiStorici().aggiungiPrestito(nuovo);
   	    	               System.out.println(Costanti.OP_SUCCESSO);
   	   	                }
   	   	                else if(!(getArchivioPrestiti().controlloDisponibilitaRisorsa(r)))
@@ -262,7 +257,7 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
 	              {
   	   		         nuovo = new Prestito(c, f, r);
   	   		         f.registraNuovoPrestito(getArchivioPrestiti(), nuovo);
-  	   		         as.getPrestitiStorici().aggiungiPrestito(nuovo);
+  	   		         getArchivioStorico().getPrestitiStorici().aggiungiPrestito(nuovo);
 	      	         System.out.println(Costanti.OP_SUCCESSO);
 	              }
 	              else if(!(getArchivioPrestiti().controlloDisponibilitaRisorsa(r)))
@@ -291,7 +286,7 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
    	      
    	          if(f.registraProrogaPrestito(pr))
    	          {
-   	    	       as.getPrestitiConProrogheStoriche().aggiungiPrestito(pr);;
+   	    	       getArchivioStorico().getPrestitiConProrogheStoriche().aggiungiPrestito(pr);;
    	    	       System.out.println(Costanti.OP_SUCCESSO);
    	          }
    	          else
@@ -308,7 +303,7 @@ public class ProcessFruitoreHandler extends ProcessHandler implements Serializab
     
     public void controlloScadenzeAutomatiche()
     {
- 	    af.decadenzaFruitore(as);
+    	getAnagraficaFruitori().decadenzaFruitore(getArchivioStorico());
         getArchivioPrestiti().scadenzaPrestito();
     }   
 }
