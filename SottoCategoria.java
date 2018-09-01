@@ -16,7 +16,7 @@ public class SottoCategoria extends Contenitore implements Serializable
     	super(ns);
     	inizializzaElencoRisorse();
     }
-    
+
     public ArrayList <Risorsa> ricercaRisorsa(IRicercaStrategy ricerca)
     {
     	return ricerca.ricercaRisorsa(getElencoRisorse()); 

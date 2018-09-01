@@ -17,8 +17,10 @@ import dominio.parte2.punto4.RicercaPerRegistaStrategy;
 import dominio.parte2.punto4.RicercaPerTitoloStrategy;
 import dominio.parte2.punto4.Risorsa;
 import dominio.parte2.punto4.SottoCategoria;
+import logica.parte2.punto4.AnagraficaFruitori;
 import logica.parte2.punto4.Archivio;
 import logica.parte2.punto4.ArchivioPrestiti;
+import logica.parte2.punto4.ArchivioStorico;
 import logica.parte2.punto4.Utente;
 import utility.parte2.Costanti;
 import utility.parte2.InputDati;
@@ -29,11 +31,15 @@ public abstract class ProcessHandler implements Serializable
 	
 	private Archivio arc;
     private ArchivioPrestiti ap;
+    private AnagraficaFruitori af;
+    private ArchivioStorico as;
     
-    public ProcessHandler(Archivio arc, ArchivioPrestiti ap)
+    public ProcessHandler(Archivio arc, ArchivioPrestiti ap, AnagraficaFruitori af, ArchivioStorico as)
     {  
     	this.arc = arc;
     	this.ap = ap;
+    	this.af = af;
+    	this.as = as;
     }
     
     public Archivio getArchivio()
@@ -44,6 +50,16 @@ public abstract class ProcessHandler implements Serializable
     public ArchivioPrestiti getArchivioPrestiti()
     {
     	return ap;
+    }
+    
+    public AnagraficaFruitori getAnagraficaFruitori()
+    {
+    	return af;
+    }
+    
+    public ArchivioStorico getArchivioStorico()
+    {
+    	return as;
     }
 
     public abstract Utente accesso();

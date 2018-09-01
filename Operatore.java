@@ -19,12 +19,12 @@ public class Operatore extends Utente implements Serializable
    	   return e.toString();
     }
     
-    public void aggiungiRisorsaCategoria(Risorsa r, Contenitore s)
+    public void aggiungiRisorsa(Risorsa r, Contenitore s)
     {
     	 s.aggiungiRisorsa(r);
     }
     
-    public void rimuoviRisorsaCategoria(Risorsa r, Contenitore s)
+    public void rimuoviRisorsa(Risorsa r, Contenitore s)
     {
     	 s.rimuoviRisorsa(r);
     }
