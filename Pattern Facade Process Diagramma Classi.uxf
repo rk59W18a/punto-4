@@ -7,7 +7,7 @@
       <x>170</x>
       <y>390</y>
       <w>225</w>
-      <h>120</h>
+      <h>135</h>
     </coordinates>
     <panel_attributes>/ProcessHandler/
 --
@@ -24,6 +24,7 @@
 +richiestaLogout(): boolean
 +stampaRisorseDaRicerca(elencoRisorse: ArrayList&lt;Risorsa&gt;: String
 +stampaElencoRisorse(c: Contenitore): String
++stampaElencoCategorie(): String
 +stampaElencoSottocategorie(c: Categoria): String
 
 </panel_attributes>
