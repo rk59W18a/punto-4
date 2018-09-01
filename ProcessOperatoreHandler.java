@@ -73,7 +73,7 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
      	 SottoCategoria sc = null;
      	 Risorsa nuovar = null;
      	     
-     	 System.out.printf(Costanti.CONTENUTO_ARC, getArchivio().stampaElencoCategorie());
+     	 System.out.printf(Costanti.CONTENUTO_ARC, stampaElencoCategorie());
      	
          int num1 = InputDati.leggiIntero(Costanti.INS_NUMERO_CAT_AGGIUNTA_RISORSA, Costanti.NUM_MINIMO, (getArchivio().getElencoCategorie()).size());
          c = (getArchivio().getElencoCategorie()).get(num1-Costanti.NUM_MINIMO);
@@ -97,7 +97,7 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
  		       {
  		    	     if((c.getRisorsa(nuovar.getTitolo()) == null))
  	       	         {
-	    	   		     op.aggiungiRisorsaCategoria(nuovar, c);
+	    	   		     op.aggiungiRisorsa(nuovar, c);
 	    	     	     System.out.println(Costanti.OP_SUCCESSO);
 	    	   	     }
  	       	         else
@@ -133,7 +133,7 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
 	    	   	    {
 	    	   	           if(((nuovar.getGenere()).equalsIgnoreCase(sc.getNome())))
 	    	   	           {
-	    	   		          op.aggiungiRisorsaCategoria(nuovar, sc);
+	    	   		          op.aggiungiRisorsa(nuovar, sc);
 	    	      	          System.out.println(Costanti.OP_SUCCESSO);
 	    	   	           }
 	    	   	           else
@@ -152,7 +152,7 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
  	    SottoCategoria sc = null;
  	    Risorsa daEliminare = null;
  	    
- 	    System.out.printf(Costanti.CONTENUTO_ARC, getArchivio().stampaElencoCategorie());
+ 	    System.out.printf(Costanti.CONTENUTO_ARC, stampaElencoCategorie());
  	    
  	    int num1 = InputDati.leggiIntero(Costanti.INS_NUMERO_CAT_RIMOZIONE_RISORSA, Costanti.NUM_MINIMO, (getArchivio().getElencoCategorie()).size());
         c = (getArchivio().getElencoCategorie()).get(num1-Costanti.NUM_MINIMO);
@@ -168,7 +168,7 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
      	    	{
          			int num2 = InputDati.leggiIntero(Costanti.INS_NUMERO_RISORSA_RIMOZIONE, Costanti.NUM_MINIMO, (c.getElencoRisorse()).size());
      		      	daEliminare = (c.getElencoRisorse()).get(num2-Costanti.NUM_MINIMO);
-     		     	op.rimuoviRisorsaCategoria(daEliminare, c);
+     		     	op.rimuoviRisorsa(daEliminare, c);
      		     	getArchivioStorico().aggiungiRisorsaRimossa(daEliminare);
              		System.out.println(Costanti.OP_SUCCESSO);
      	    	}
@@ -199,7 +199,7 @@ public class ProcessOperatoreHandler extends ProcessHandler implements Serializa
      	      	    {
      	      	     	int num3 = InputDati.leggiIntero(Costanti.INS_NUMERO_RISORSA_RIMOZIONE, Costanti.NUM_MINIMO, (sc.getElencoRisorse()).size());
          	    		daEliminare = (sc.getElencoRisorse()).get(num3-Costanti.NUM_MINIMO);
-         	    		op.rimuoviRisorsaCategoria(daEliminare, sc);
+         	    		op.rimuoviRisorsa(daEliminare, sc);
          	    		getArchivioStorico().aggiungiRisorsaRimossa(daEliminare);
          	           	System.out.println(Costanti.OP_SUCCESSO);
      	      	    }
