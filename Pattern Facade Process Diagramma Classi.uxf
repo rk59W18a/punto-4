@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>390</y>
+      <w>225</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>/ProcessHandler/
+--
+-arc: Archivio
+-ap: ArchivioPrestiti
+-af: AnagraficaFruitori
+-as: ArchivioStorico
+--
+/+accesso(): Utente/
++ricercaRisorsa(ut: Utente): ArrayList&lt;Risorsa&gt;
++ricercaRisorsaLibri(ut: Utente, c: Contenitore): ArrayList&lt;Risorsa&gt;
++ricercaRisorsaFilm(ut: Utente, c: Contenitore): ArrayList&lt;Risorsa&gt;
++valutazioneDisponibilita(ut: Utente): String
++richiestaLogout(): boolean
++stampaRisorseDaRicerca(elencoRisorse: ArrayList&lt;Risorsa&gt;: String
++stampaElencoRisorse(c: Contenitore): String
++stampaElencoSottocategorie(c: Categoria): String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>450</y>
+      <w>215</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>ProcessFruitoreHandler
+--
+
+--
++iscrizione(): void
++rinnovaIscrizione(f: Fruitore): void
++accesso(): Utente
++visualizzaPrestitiInCorso(f: Fruitore): void
++registraPrestito(f: Fruitore): void
++richiediProroga(f: Fruitore): void
++controlloScadenzeAutomatiche(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>295</y>
+      <w>220</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>ProcessOperatoreHandler
+--
+-ao: AnagraficaOperatori
+--
++accesso(): Utente
++visualizzaElencoFruitori(op: Operatore): void
++aggiungiRisorsa(op: Operatore): void
++rimuoviRisorsa(op: Operatore): void
++visualizzaArchivio(op: Operatore): void
++sceltaInterrogazione(o: Operatore): String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>375</y>
+      <w>225</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>430.0;10.0;120.0;150.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>445</x>
+      <y>445</y>
+      <w>170</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>320.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>115</x>
+      <y>295</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>MenuHandler
+--
+
+--
++logicaMenu(processOperatore: processOperatoreHandler, processFruitore: processFruitoreHandler): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>275</x>
+      <y>330</y>
+      <w>15</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>970</x>
+      <y>460</y>
+      <w>160</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>dominio.parte2.punto4
+--
+
++Categoria
+/+Contenitore/
++Film
++IRicercaStrategy &lt;&lt;interface&gt;&gt;
++Libro
++RicercaPerAnnoPubblicazioneStrategy
++RicercaPerArtistaStrategy
++RicercaPerCasaEditriceStrategy
++RicercaPerGenereStrategy
++RicercaPerRegistaStrategy
++RicercaPerTitoloStrategy
+/+Risorsa/
++SottoCategoria
+
+
+
+
+Text
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>995</x>
+      <y>320</y>
+      <w>90</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>logica.parte2.punto4
+--
++Anagrafica
++AnagraficaFruitori
++AnagraficaOperatori
++Archivio
++ArchivioPrestiti
++ArchivioStorico
++Fruitore
++Operatore
++Prestito
++Utente
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>990</x>
+      <y>210</y>
+      <w>100</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>utility.parte2
+--
++Costanti
++Data
++InputDati
++Menu
++ServizioFile
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>75</x>
+      <y>165</y>
+      <w>850</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>interazione.parte2.punto4
+--
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>115</x>
+      <y>200</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Main
+--
+
+--
+_+main(String[] args): void_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>275</x>
+      <y>235</y>
+      <w>15</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>245</y>
+      <w>180</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>340.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>350</y>
+      <w>185</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>355</y>
+      <w>160</w>
+      <h>185</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>300.0;350.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>815</x>
+      <y>505</y>
+      <w>165</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>310.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>815</x>
+      <y>355</y>
+      <w>190</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>360.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>815</x>
+      <y>245</y>
+      <w>185</w>
+      <h>275</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>350.0;10.0;10.0;530.0</additional_attributes>
+  </element>
+</diagram>
