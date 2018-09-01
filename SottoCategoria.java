@@ -18,7 +18,7 @@ public class SottoCategoria extends Contenitore implements Serializable
     	inizializzaElencoRisorse();
     }
     */
-	
+    
 	// E' stata creata l'interfaccia IRicercaStrategy, in accordo con il principio
 	//della GoF Strategy, ed è stato dunque reimpostato il tipo di parametro
     public ArrayList <Risorsa> ricercaRisorsa(IRicercaStrategy ricerca)

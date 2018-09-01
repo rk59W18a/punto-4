@@ -85,8 +85,11 @@ public class Categoria extends Contenitore implements Serializable
 		   }
 		   return presente;
 	   }
+	   
 	   */
 	 
+	// E' stata creata l'interfaccia IRicercaStrategy, in accordo con il principio
+	//della GoF Strategy, ed è stato dunque reimpostato il tipo di parametro
 	   public ArrayList <Risorsa> ricercaRisorsa(IRicercaStrategy ricerca)
 	   {
 		   ArrayList <Risorsa> risorseCercate = new ArrayList <>();
@@ -108,6 +111,7 @@ public class Categoria extends Contenitore implements Serializable
 	   }
 	   
 	   /*
+	   
 	   public String toString()
 	   {
 		   StringBuffer ris = new StringBuffer();
@@ -145,5 +149,6 @@ public class Categoria extends Contenitore implements Serializable
 		   
 		   return ris.toString();
 	   }	   
+	   
 	   */
 }
