@@ -108,6 +108,7 @@ public class Categoria extends Contenitore implements Serializable
 	   }
 	   
 	   /*
+	   
 	   public String toString()
 	   {
 		   StringBuffer ris = new StringBuffer();
