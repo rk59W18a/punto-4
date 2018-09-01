@@ -30,19 +30,6 @@ public class Archivio implements Serializable
 		elencoCategorie.add(c);
 	}
 	
-	public String stampaElencoCategorie()
-	{
-		StringBuffer ris = new StringBuffer();
-		   
-		for(int i = 0; i < elencoCategorie.size(); i++)
-		{
-			   Categoria c = elencoCategorie.get(i);
-			   ris.append(i+1 + ")" + c.getNome() + "\n");
-		}
-		   
-	    return ris.toString();
-	}
-	
 	public String toString()
 	{
 		StringBuffer ris = new StringBuffer();

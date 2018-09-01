@@ -68,7 +68,7 @@ public abstract class ProcessHandler implements Serializable
     {
        	Categoria c = null;
        	
-   	 	System.out.printf(Costanti.CONTENUTO_ARC, arc.stampaElencoCategorie());
+   	 	System.out.printf(Costanti.CONTENUTO_ARC, stampaElencoCategorie());
    	 	
    	    int num1 = InputDati.leggiIntero(Costanti.INS_NUMERO_CAT_RICERCA, Costanti.NUM_MINIMO, (arc.getElencoCategorie()).size());
    	    c = (arc.getElencoCategorie()).get(num1-Costanti.NUM_MINIMO);
@@ -204,6 +204,19 @@ public abstract class ProcessHandler implements Serializable
  	   
  	   return ris.toString();
    }
+   
+    public String stampaElencoCategorie()
+	{
+		StringBuffer ris = new StringBuffer();
+		   
+		for(int i = 0; i < arc.getElencoCategorie().size(); i++)
+		{
+			   Categoria c = arc.getElencoCategorie().get(i);
+			   ris.append(i+1 + ")" + c.getNome() + "\n");
+		}
+		   
+	    return ris.toString();
+	}
   
    public String stampaElencoSottocategorie(Categoria c)
    {
